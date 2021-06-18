@@ -29,7 +29,3 @@ if __name__ == "__main__":  # Runs app with the following arguments.
         host=os.environ.get("IP", "0.0.0.0"),
         port=int(os.environ.get("PORT", "5000")),
         debug=True)
-        """
-        Allows debugging during development.
-        Always set to false before submitting
-        """
