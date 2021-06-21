@@ -1,11 +1,11 @@
 import os  # imports OS from the standard Python library
 import json
-from flask import Flask, render_template, request, flash  # imports Flask class from flask
+from flask import Flask, render_template, request, flash
 if os.path.exists("env.py"):
     import env
 
 
-app = Flask (__name__)  # Stores flask in a variable called app
+app = Flask(__name__)  # Stores flask in a variable called app
 app.secret_key = os.environ.get("SECRET_KEY")
 
 
@@ -33,7 +33,6 @@ def about_member(member_name):
     return render_template("member.html", member=member)
 
 
-
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
     if request.method == "POST":
@@ -45,10 +44,9 @@ def contact():
 @app.route("/careers")
 def careers():
     return render_template("careers.html", page_title="Careers")
-    
 
 
-if __name__ == "__main__":  # Runs app with the following arguments. 
+if __name__ == "__main__":  # Runs app with the following arguments 
     app.run(
         host=os.environ.get("IP", "0.0.0.0"),
         port=int(os.environ.get("PORT", "5000")),
